@@ -8,6 +8,7 @@ import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"jsonLazyInitializer", "handler"})
+@Table(name="route")
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -106,4 +107,5 @@ public class Route {
                 ", destinationStationId=" + destinationStationId +
                 '}';
     }
+
 }

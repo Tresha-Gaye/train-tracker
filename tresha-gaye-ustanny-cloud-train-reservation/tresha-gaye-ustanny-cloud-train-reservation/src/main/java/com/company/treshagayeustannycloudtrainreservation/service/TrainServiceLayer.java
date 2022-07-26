@@ -4,6 +4,7 @@ import com.company.treshagayeustannycloudtrainreservation.model.Train;
 import com.company.treshagayeustannycloudtrainreservation.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class TrainServiceLayer {
 
+    @Autowired
     private TrainRepository trainRepository;
 
     @Autowired
@@ -31,6 +33,16 @@ public class TrainServiceLayer {
         return trainRepository.findAll();
     }
 
+    public void deleteTrain(Integer trainId) {
+        // Remove album
+      trainRepository.deleteById(trainId);
+
+    }
+
+    public void updateTrain(Train train) {
+
+        trainRepository.save(train);
+    }
 
 
 
